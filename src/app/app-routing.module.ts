@@ -12,7 +12,7 @@ const routes: Routes = [
   { path : '', component : InicioComponent },                 
   { path : 'nosotros', component : NosotrosComponent },          
   { path : 'productos', component : ProductosComponent},    
-  { path : 'productos', component : PreguntasComponent},    
+  { path : 'preguntas', component : PreguntasComponent},    
   { path : '**', redirectTo : '' }                       
 ];
 
