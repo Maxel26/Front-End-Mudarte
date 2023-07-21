@@ -1,0 +1,67 @@
+.container-footer {
+    background-color: rgb(59, 59, 221);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.logo-inferior {
+    margin: 0.5rem;
+}
+
+.container-contact {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    }
+
+
+.footer-left {
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    justify-content: space-between;
+    text-align: end;
+    margin: 5px;
+}
+
+.personal-data {
+    color:whitesmoke;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 567px){
+  .container{
+      max-width: 540px;
+  }
+}
+
+@media screen and (min-width: 768px){
+    .container{
+        max-width: 720px;
+    }
+}
+
+@media screen and (min-width: 992px){
+  .container{
+      max-width: 960px 
+  }  
+}
+
+@media screen and ( min-width: 1200px){
+  .container{
+      max-width: 1140px;
+  }  
+}
+
+@media screen and (min-width: 1400px){
+  .container{
+      max-width: 1320px
+  }
+}
