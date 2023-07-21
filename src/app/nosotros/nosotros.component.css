@@ -28,8 +28,7 @@ b {
   color: rgb(37, 35, 35);
   text-align: justify;
   justify-content: center;
-  border: ridge;
-  border-color: grey;
+  border: none;
   background-color: aliceblue;
 }
 
@@ -40,7 +39,7 @@ b {
 
 .personal-mudar {
   margin-left: 70px;
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .titulo {
@@ -58,8 +57,8 @@ b {
 }
 
 .valor-agregado-1 {
-  width: 450px;
-  height: 300px;
+  width: 400px;
+  height: 410px;
   overflow: hidden;
   margin: 20px;
   padding: 20px;
@@ -78,7 +77,7 @@ b {
     box-shadow: 0 12px 16px rgba(0, 0, 0, 1.2);
 }
 
-.socios {
+.contacto {
   width: 100%;
   display: flex;
   gap: 20px 20px;
@@ -86,21 +85,42 @@ b {
   justify-content: space-evenly;
 }
 
-.socio-1 {
-  width: 450px;
-  height: 450px;
-  margin: 20px;
-  padding: 20px;
+.imagenContacto {
+  object-fit: cover;
+}
+
+.cardContacto {
+  width: 400px;
+  height: 550px;
+  margin: 10px 0px 30px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: auto;
+  font-family: 'Martel', 'serif', 'Monserrat', 'sans-serif';
   border: ridge;
-  border-color: grey;
+  border-color: transparent;
   border-radius: 6px;
   background-color: aliceblue;
   text-align: center;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   cursor: default;
   transition: 400ms ease;
 }
 
-.socio-1:hover {
+.contenidoContacto {
+  margin: 0px 10px 0px;
+}
+
+.tituloContacto {
+  font-size: x-large;
+}
+
+.contactInfo {
+  font-weight: bold;
+}
+
+
+.cardContacto:hover {
     transform: translateY(-30px);
     box-shadow: 0 12px 16px rgba(0, 0, 0, 1.2);
 }
