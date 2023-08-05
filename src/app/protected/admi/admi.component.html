@@ -1,0 +1,97 @@
+<div class="container">
+    
+    <div class="family">
+        <h2>AGREGUE PRODUCTOS</h2>
+    </div>
+
+    <form class=""
+    [formGroup]="productForm"
+    (ngSubmit) = "createProduct()"
+    >
+
+    <div class="element">
+        <div class="field">
+            <label for="image">Imagen</label>
+            <input type="text" 
+            id="image"
+            class="input-field"
+            type="text"
+            formControlName="image"
+            placeholder="imagen">
+
+            <label for="title">Nombre del producto</label>
+            <input
+              id="title"
+              class="input-field"
+              type="text"
+              formControlName="name"
+              placeholder="Nombre del prodcuto"
+            />    
+
+            <label for="family">Familia del producto</label>
+            <select
+              id="family"
+              class="input-field"
+              type="text"
+              formControlName="family"
+              placeholder="Familia del producto"
+            >
+            <option value="">Seleccione...</option>
+            <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+             </select>
+
+        </div>
+
+        <div class="edit-main">
+            <button type="submit"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+        </div> 
+    </div>
+
+    <div class="family">
+        <h2>FAMILIA DE ESTIBAS</h2>
+    </div>
+
+    <ng-template *ngIf="productsEstiba && productsEstiba.length > 0; then productList; else noProduct "></ng-template>
+
+    <ng-template #productList>
+       
+            <div class="element" *ngFor="let product of productsEstiba">
+                <div class="product-content">
+                    <h3>Id Producto : {{product._id}}</h3>
+                    <div class="img-title">
+                        <img src="./images/Estiba.jpg" alt="">
+                        <p>{{product.name}}</p>
+                        
+                    </div>
+                </div>
+        
+                <div class="edit-main">
+                    <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+                    <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+                </div>
+            </div>
+        
+    </ng-template>
+
+    <ng-template #noProduct>
+        <h3>No hay productos</h3>
+    </ng-template>
+
+    </form>    
+
+    <div class="element">
+        <div >
+            <h3>Id  Descripcion Producto : </h3>
+            <p class="description-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse laudantium a, nulla quia, numquam accusamus explicabo sed commodi velit, nostrum minus nobis iste iusto quisquam ut animi cum ex eum voluptatem ea quasi ratione! Culpa nemo odit necessitatibus ratione quia est nulla adipisci optio eaque, doloremque perspiciatis accusantium cum possimus! Doloribus voluptatibus illo facere ea reiciendis, voluptate natus fuga perferendis repellendus tempora ipsam quibusdam. Dignissimos, odio eligendi! Officiis fugiat repudiandae iusto, laboriosam sunt facere natus suscipit ipsa explicabo </p>
+            
+        </div>
+
+        <div class="edit-main">
+            <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+            <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+        </div>
+    </div>
+        
+</div> 
+
+

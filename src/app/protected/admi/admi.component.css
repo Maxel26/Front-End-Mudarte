@@ -1,0 +1,62 @@
+.family{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    font-size: 40px;
+}
+.add-button{
+    margin-left: 15px ;
+    width: 35px;
+    height: 35px;
+    font-size: 20px;
+    background-color: limegreen;
+    color: white;
+    border: solid black 2px;
+}
+.add{
+    margin-left: 10px;
+}
+.element{
+    border: 1px black solid;
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px 50px 0px;
+}
+h3{
+    margin-left: 20px;
+}
+ .field{
+  display: flex;
+  flex-direction: row;
+  margin: 0.3rem 0;
+}
+.img-title{
+    display: flex;
+    align-items: center ;
+    margin: 0px 0px 15px 15px;
+}
+.img-title  p{
+    font-size: 30px;
+    margin-left: 20px;
+}
+img{
+    width: 200px;
+    height: 200px;
+}
+.edit-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center ;
+    gap : .4rem; 
+}
+.edit{
+    width: 20px;
+    height: 20px;
+}
+.description-content{
+    /* border: 1px solid black; */
+    width: 700px;
+    padding: 20px;
+}

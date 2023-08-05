@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { NosotrosComponent } from './nosotros/nosotros.component';
-import { ProductosComponent } from './productos/productos.component';
-import { PreguntasComponent } from './preguntas/preguntas.component';
+import { InicioComponent } from './pages/inicio/inicio.component';
+import { NosotrosComponent } from './pages/nosotros/nosotros.component';
+import { ProductosComponent } from './pages/productos/productos.component';
+import { PreguntasComponent } from './pages/preguntas/preguntas.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './pages/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,10 +21,11 @@ import { AppRoutingModule } from './app-routing.module';
     ProductosComponent,
     PreguntasComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule, AppRoutingModule
+    BrowserModule, AppRoutingModule, HttpClientModule, ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
