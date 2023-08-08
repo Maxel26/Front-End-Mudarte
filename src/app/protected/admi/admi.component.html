@@ -1,7 +1,7 @@
 <div class="container">
     
     <div class="family">
-        <h2>AGREGUE PRODUCTOS</h2>
+        <h2>AGREGUE <b>PRODUCTOS</b></h2>
     </div>
 
     <form class=""
@@ -48,10 +48,10 @@
     </div>
 
     <div class="family">
-        <h2>FAMILIA DE ESTIBAS</h2>
+        <h2>FAMILIA DE <b>ESTIBAS</b></h2>
     </div>
 
-    <ng-template *ngIf="productsEstiba && productsEstiba.length > 0; then productList; else noProduct "></ng-template>
+    <ng-container *ngIf="productsEstiba && productsEstiba.length > 0; then productList; else noProduct "></ng-container>
 
     <ng-template #productList>
        
@@ -67,14 +67,14 @@
         
                 <div class="edit-main">
                     <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
-                    <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+                    <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
                 </div>
             </div>
         
     </ng-template>
 
     <ng-template #noProduct>
-        <h3>No hay productos</h3>
+        <h3>No hay productos de la familia estibas</h3>
     </ng-template>
 
     </form>    
@@ -91,7 +91,182 @@
             <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
         </div>
     </div>
+
+    <div class="family">
+        <h2>FAMILIA DE <b>HUACALES</b></h2>
+    </div>
+
+    <ng-container *ngIf="productsHuacales && productsHuacales.length > 0; then listHuacales; else noHuacales" ></ng-container>
+
+    <ng-template #listHuacales>
+        
+        <div class="element" *ngFor="let product of productsHuacales">
+            <div class="product-content">
+                <h3>Id Producto : {{product._id}}</h3>
+                <div class="img-title">
+                    <img src="./images/Estiba.jpg" alt="">
+                    <p>{{product.name}}</p>
+                    
+                </div>
+            </div>
+    
+            <div class="edit-main">
+                <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+                <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+            </div>
+        </div>
+
+    </ng-template>
+
+    <ng-template #noHuacales>
+        <h3>No hay productos de la familia huacales</h3>
+    </ng-template>
+
+    <div class="element">
+        <div >
+            <h3>Id  Descripcion Producto : </h3>
+            <p class="description-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse laudantium a, nulla quia, numquam accusamus explicabo sed commodi velit, nostrum minus nobis iste iusto quisquam ut animi cum ex eum voluptatem ea quasi ratione! Culpa nemo odit necessitatibus ratione quia est nulla adipisci optio eaque, doloremque perspiciatis accusantium cum possimus! Doloribus voluptatibus illo facere ea reiciendis, voluptate natus fuga perferendis repellendus tempora ipsam quibusdam. Dignissimos, odio eligendi! Officiis fugiat repudiandae iusto, laboriosam sunt facere natus suscipit ipsa explicabo </p>
+            
+        </div>
+
+        <div class="edit-main">
+            <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+            <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+        </div>
+    </div>
+
+    <div class="family">
+        <h2>FAMILIA DE <b>CAJAS</b></h2>
+    </div>
+
+    <ng-container *ngIf="productsCajas && productsCajas.length > 0; then listCajas; else noCajas"></ng-container>
+
+    <ng-template #listCajas>
+
+        <div class="element" *ngFor="let product of productsCajas">
+            <div class="product-content">
+                <h3>Id Producto : {{product._id}}</h3>
+                <div class="img-title">
+                    <img src="./images/Estiba.jpg" alt="">
+                    <p>{{product.name}}</p>
+                    
+                </div>
+            </div>
+    
+            <div class="edit-main">
+                <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+                <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+            </div>
+        </div>
+
+    </ng-template>
+
+    <ng-template #noCajas>
+        <h3>No hay productos de la familia cajas</h3>
+    </ng-template>
+
+    <div class="element">
+        <div >
+            <h3>Id  Descripcion Producto : </h3>
+            <p class="description-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Esse laudantium a, nulla quia, numquam accusamus explicabo sed commodi velit, nostrum minus nobis iste iusto quisquam ut animi cum ex eum voluptatem ea quasi ratione! Culpa nemo odit necessitatibus ratione quia est nulla adipisci optio eaque, doloremque perspiciatis accusantium cum possimus! Doloribus voluptatibus illo facere ea reiciendis, voluptate natus fuga perferendis repellendus tempora ipsam quibusdam. Dignissimos, odio eligendi! Officiis fugiat repudiandae iusto, laboriosam sunt facere natus suscipit ipsa explicabo </p>
+            
+        </div>
+
+        <div class="edit-main">
+            <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+            <button  ><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
+        </div>
+    </div>
         
 </div> 
+
+
+
+
+<!-- <main>
+    <div class="container title-products">
+        <h3>FAMILIA DE <b>ESTIBAS</b></h3> 
+    </div>
+
+    <div class="container direction">
+
+        <div class="card">
+            <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
+            <h4>Estiba</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/Family-estibas/Sin marco.jpg" alt=""></a>
+            <h4>Base Y Tapa Sin Marco</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/Family-estibas/Base y tpa con base.jpg" alt=""></a>
+            <h4>Base Y Tapa Con Marco</h4>
+        </div>
+
+        <div class="pharagrap ">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+        </div>
+    </div>
+
+    <div class="container title-products">
+        <h3>FAMILIA DE <b>HUACALES</b></h3> 
+    </div>
+
+    <div class="container direction">
+
+        <div class="card">
+            <a href="#"><img src="./images/Family-huacales/Jaula.jpg" alt=""></a>
+            <h4>Huacal Tipo Jaula</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/Family-huacales/Jaula con auxiliares.jpg" alt=""></a>
+            <h4>Huacal Con Auxiliares</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/Family-huacales/Juala con abrazaderas.jpg" alt=""></a>
+            <h4>Huacal Con Abrazaderas</h4>
+        </div>
+
+        
+
+        <div class="pharagrap ">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+        </div>
+         
+    </div>
+
+    <div class="container title-products">
+        <h3 id="productos">FAMILIA DE <b>CAJAS</b></h3> 
+    </div>
+
+    <div class="container direction">
+
+        <div class="card">
+            <a href="#"><img src="./images/Family-cajas/Esti enbalada.jpg" alt=""></a>
+            <h4>Caja Embalada</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/Family-cajas/caja plegable.jpg" alt=""></a>
+            <h4>Caja Plegable</h4>
+        </div>
+        
+        <div class="card">
+            <a href="#"><img src="./images/CajaEstibaCartonn.jpg" alt=""></a>
+            <h4>Caja Estiba carton</h4>>
+        </div>
+
+        <div class="pharagrap ">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+        </div>
+        
+    </div>        
+
+</main> -->
+
 
 

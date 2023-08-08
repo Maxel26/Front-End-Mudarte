@@ -6,15 +6,6 @@
 h2{
     font-size: 40px;
 }
-.add-button{
-    margin-left: 15px ;
-    width: 35px;
-    height: 35px;
-    font-size: 20px;
-    background-color: limegreen;
-    color: white;
-    border: solid black 2px;
-}
 .add{
     margin-left: 10px;
 }
@@ -22,7 +13,13 @@ h2{
     border: 1px black solid;
     display: flex;
     justify-content: space-around;
-    margin: 20px 0px 50px 0px;
+    margin: 20px 0px 30px 120px;
+    /* margin: 0 auto ; */
+    max-width: 80%;
+    
+}
+b{
+    color: blue;
 }
 h3{
     margin-left: 20px;

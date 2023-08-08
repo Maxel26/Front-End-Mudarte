@@ -13,7 +13,9 @@ export class AdmiComponent implements OnInit {
 
   lista:string[]= ['estibas','huacales','cajas'];
 
-  productsEstiba!: Array<Product>;  // Product 
+  productsEstiba!: Array<Product>; 
+  productsHuacales!: Array<Product>; 
+  productsCajas!: Array<Product>; 
 
   productForm : FormGroup = this.fb.group({
     name: [
@@ -38,8 +40,7 @@ export class AdmiComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private productsService: ProductService,
-    private router : Router
+    private productsService: ProductService
   ){}
 
   ngOnInit(): void {
@@ -50,6 +51,14 @@ export class AdmiComponent implements OnInit {
     this.productsService.getProductsByFamily('estibas')
         .subscribe(products => {this.productsEstiba = products
           console.log(products); 
+        });
+    this.productsService.getProductsByFamily('huacales')
+        .subscribe(products => {this.productsHuacales = products
+          console.log(products);
+        });
+    this.productsService.getProductsByFamily('cajas')
+        .subscribe(products => {this.productsCajas = products
+          console.log(products);  
         });
   }
 
@@ -66,5 +75,13 @@ export class AdmiComponent implements OnInit {
 
       this.productForm.reset();
       this.loadProductsByfamilies();
+  }
+
+  deleteProduct(productId : string | undefined){
+    this.productsService.deleteProduct(productId )
+      .subscribe( response => {
+        console.log(response);
+        this.loadProductsByfamilies();
+      })
   }
 }
