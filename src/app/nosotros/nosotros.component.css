@@ -9,9 +9,6 @@ body {
   padding: 0 20px;
 }
 
-.titulo {
-  font-weight: 1000;
-}
 
 b {
   color: blue;
@@ -40,12 +37,6 @@ b {
 .personal-mudar {
   margin-left: 70px;
   margin-top: 60px;
-}
-
-.titulo {
-  width: 100%;
-  font-size: xx-large;
-  text-align: center;
 }
 
 .valor-agregado {
@@ -91,7 +82,7 @@ b {
 
 .cardContacto {
   width: 400px;
-  height: 550px;
+  height: 570px;
   margin: 10px 0px 30px;
   display: flex;
   flex-direction: column;
@@ -127,7 +118,15 @@ b {
 
 @media screen and (min-width: 567px){
   .container{
-      max-width: 540px;
+      max-width: 550px;
+  }
+  .titulo {
+    max-width: 550px;
+    align-content: center;
+  }
+  .encabezado-nosotros{
+    max-width: 550px;
+    flex-direction: column;
   }
 }
 
