@@ -9,6 +9,12 @@
     margin: 0.5rem;
 }
 
+.footer-right {
+    display: flex;
+    flex-direction: row;
+    
+}
+
 .container-contact {
     color: whitesmoke;
     font-family: Arial, Helvetica, sans-serif;
@@ -32,8 +38,14 @@
 }
 
 .personal-data {
+    flex-direction: column;
+    display: flex;
     color:whitesmoke;
     text-decoration: none;
+}
+
+.admin {
+    justify-content: end;
 }
 
 @media screen and (min-width: 567px){
