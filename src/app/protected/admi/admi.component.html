@@ -11,13 +11,23 @@
 
     <div class="element">
         <div class="field">
-            <label for="image">Imagen</label>
+            <!-- <label for="image">Imagen</label>
             <input type="text" 
             id="image"
             class="input-field"
             type="text"
             formControlName="image"
-            placeholder="imagen">
+            placeholder="imagen"> -->
+
+            
+            <label for="image">Imagen</label>
+            <input
+                id="image"
+                class="input-field"
+                type="file"
+                formControlName="urlImage"
+                (change)="updateFile($event)"
+            />
 
             <label for="title">Nombre del producto</label>
             <input
@@ -59,14 +69,16 @@
                 <div class="product-content">
                     <h3>Id Producto : {{product._id}}</h3>
                     <div class="img-title">
-                        <img src="./images/Estiba.jpg" alt="">
-                        <p>{{product.name}}</p>
+                        <img [src]="product.urlImage" alt="">
+                        <!-- <img [src]="product.image" alt=""> -->
+                        <p *ngIf="showTitle">{{product.name}}</p>
+                        <input [value]="product.name" autofocus *ngIf="showInput">
                         
                     </div>
                 </div>
         
                 <div class="edit-main">
-                    <button  ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+                    <button  (click)="editProduct()" ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
                     <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
                 </div>
             </div>

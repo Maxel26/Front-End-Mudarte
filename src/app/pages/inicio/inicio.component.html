@@ -18,30 +18,25 @@
      <h3><b>PRODUCTOS</b> ESTRELLA</h3> 
  </div>
             
-   <div class="container direction">
 
-     <div class="card">
-         <a routerLink="productos"><img src="./images/Estiba.jpg" alt=""></a>
-          <h4>Estiba</h4>
-          <p>Empaque de gran versatilidad, permite el transporte agil, confiable y eficiente de aquellos productos que no requieran necesidades especiales de protección. Ideales igualmente para actividades de bodegaje.</p>
-         <a routerLink="#productos" class="buttom-card-products" >Ver mas </a>
-     </div>
-     
-     <div class="card">
-         <a routerLink="productos"><img src="./images/Huacaltipojaula.jpg" alt=""></a>
-         <h4>Huacal tipo jaula</h4>
-         <p>Cuando su producto requiera maxima protección; su estructura de integra de madera garantiza protección extra, ademas de soportar condiciones de manejo desfavorables tales como golpes y caidas de baja altura.
-         </p>
-         <a routerLink="productos" class="buttom-card-products" >Ver mas </a>
-     </div>
-     
-     <div class="card">
-         <a routerLink="productos"><img src="./images/CajaEstibaCartonn.jpg" alt=""></a>
-         <h4>Caja Estiba carton</h4>
-         <p>Gracias a su estructura y tapa de carton, complementado con la estiba, este empaque es ideal para proteger sus mercancias del sol, el polvo y los golpes moderados; Así, sus mercancias viajaran mas seguras.</p>
-         <a routerLink="productos" class="buttom-card-products" >Ver mas </a>
-     </div>
- </div>
+ <ng-container *ngIf="cards && cards.length > 0; then cardList; else noCard"></ng-container>
+
+ <ng-template #cardList>
+ 
+        <div class="container direction" >
+
+            <div class="card" *ngFor="let product of cards">
+                <a routerLink="productos"><img src="./images/Estiba.jpg" alt=""></a>
+                 <h4>{{product.name}}</h4>
+                 <p>{{product.description}}</p>
+                <a routerLink="#productos" class="buttom-card-products" >Ver mas </a>
+            </div>
+
+        </div>    
+ </ng-template>
+ <ng-template #noCard>
+    <h3>No hay productos estrella</h3>
+ </ng-template>
   
      
      

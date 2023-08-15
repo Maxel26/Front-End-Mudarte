@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+  }
+  
+  .container{
+    box-sizing: border-box;
+    margin: 0 auto;
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  
+  b {
+    color: blue;
+  }
+  
+  
+  .introduccion {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  
+  #accordion { 
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #accordion li {
+    list-style: none;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  #accordion li label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: blue;
+    font-weight: bolder;
+  }
+  
+  #accordion li label span {
+    transform: rotate(90deg);
+    font-size: 22px;
+    font-weight: bolder;
+  }
+  
+  #accordion label + input[type="radio"] {
+    display: none;
+  }
+  
+  #accordion .question {
+    font-size: 40px;
+  }
+  
+  #accordion .content {
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+  }
+  
+  .question {
+    font-size: xx-large;
+  }
+  
+  .content {
+    text-align: start;
+    font-size: medium;
+    margin-bottom: 20px;
+  }
+  
+  #accordion label + input[type="radio"]:checked + .content {
+    max-height: 400px;
+  }
+  
+  
+  @media screen and (min-width: 567px){
+    .container{
+        max-width: 540px;
+    }
+  }
+  
+  @media screen and (min-width: 768px){
+    .container{
+        max-width: 720px;
+    }
+  }
+  @media screen and (min-width: 992px){
+    .container{
+        max-width: 960px 
+    }
+  }
+  @media screen and ( min-width: 1200px){
+    .container{
+        max-width: 1140px;
+    }
+  }
+  @media screen and (min-width: 1400px){
+    .container{
+        max-width: 1320px
+    }
+  }

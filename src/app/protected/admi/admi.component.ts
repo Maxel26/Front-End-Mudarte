@@ -1,8 +1,10 @@
+import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Product } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-admi',
@@ -11,6 +13,10 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdmiComponent implements OnInit {
 
+  preview!: string;
+  percentDone: any = 0;
+  showTitle: boolean = true ;
+  showInput: boolean = false;
   lista:string[]= ['estibas','huacales','cajas'];
 
   productsEstiba!: Array<Product>; 
@@ -24,10 +30,7 @@ export class AdmiComponent implements OnInit {
         Validators.required
       ]
     ],
-    image: [
-      '',
-      [],
-    ],
+    urlImage: [ null ],
     description: [
       '',
       []
@@ -40,7 +43,8 @@ export class AdmiComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private productsService: ProductService
+    private productsService: ProductService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -63,10 +67,10 @@ export class AdmiComponent implements OnInit {
   }
 
   createProduct(){
-    console.group( 'productForm' );
-    console.log( this.productForm.value );
-    console.log( this.productForm.valid );
-    console.groupEnd();
+    // console.group( 'productForm' );
+    // console.log( this.productForm.value );
+    // console.log( this.productForm.valid );
+    // console.groupEnd();
 
     this.productsService.createProduct(this.productForm.value)
       .subscribe((response) => {
@@ -77,11 +81,62 @@ export class AdmiComponent implements OnInit {
       this.loadProductsByfamilies();
   }
 
+  updateFile( event: any ) {
+    const file = (event.target).files[ 0 ];
+
+    this.productForm.patchValue({
+      urlImage: file
+    });
+
+    this.productForm.get( 'urlImage' )?.updateValueAndValidity();
+
+    /*** Leer el path del archivo para mostrar el preview */
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.preview = reader.result as string;
+    };
+
+    reader.readAsDataURL( file );
+  }
+
+  create2Product() {
+    console.log( this.productForm.value )
+
+    this.productsService.create2Product(
+      this.productForm
+    ).subscribe( ( event: HttpEvent<any> ) => {
+      switch( event.type ) {
+        case HttpEventType.Sent: 
+          console.log( 'Peticion realizada!' );
+          break;
+        case HttpEventType.ResponseHeader: 
+          console.log( 'La respuesta del \'header\' ha sido recibido!' );
+          break;
+        case HttpEventType.UploadProgress: 
+          // this.percentDone = Math.round( event.loaded / event.total * 100 );
+          // console.log( `Actualizado ${ this.percentDone }%` );
+          console.log( `Actualizo` );
+          break;
+        case HttpEventType.Response: 
+          console.log( 'El producto ha sido creado exitosamente!', event.body );
+          this.percentDone = false;
+          this.router.navigate( [ 'products' ] );
+      }
+    });
+
+  }
+
   deleteProduct(productId : string | undefined){
     this.productsService.deleteProduct(productId )
       .subscribe( response => {
         console.log(response);
         this.loadProductsByfamilies();
       })
+  }
+
+  editProduct() {
+    this.showInput = !this.showInput ;
+    this.showTitle = !this.showTitle ;
   }
 }

@@ -3,7 +3,7 @@
         <h3>FAMILIA DE <b>ESTIBAS</b></h3> 
     </div>
 
-    <!-- <ng-container *ngIf="productsEstibas && productsEstibas.length > 0; then listEstibas; else noEstibas"></ng-container>
+    <ng-container *ngIf="productsEstibas && productsEstibas.length > 0; then listEstibas; else noEstibas"></ng-container>
 
     <ng-template #listEstibas>
 
@@ -14,6 +14,11 @@
                     <h4>{{product.name}}</h4>
                 </div>
             </div>
+
+            <div class="pharagrap ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+            </div>
+
         </div>
         
 
@@ -21,53 +26,65 @@
 
     <ng-template #noEstibas>
         <h3>No hay productos de la familia estibas</h3>
-    </ng-template> -->
+    </ng-template>
 
-    <!-- <div class="pharagrap ">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
-    </div> -->
-
-    <div class="container direction">
-
-        <div class="card">
-            <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
-            <h4>Estiba</h4>
-        </div>
-
-        <div class="card">
-            <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
-            <h4>Estiba</h4>
-        </div>
-
-        <div class="card">
-            <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
-            <h4>Estiba</h4>
-        </div>
-        
-        <div class="card">
-            <a href="#"><img src="./images/Family-estibas/Sin marco.jpg" alt=""></a>
-            <h4>Base Y Tapa Sin Marco</h4>
-        </div>
-        
-        <div class="card">
-            <a href="#"><img src="./images/Family-estibas/Base y tpa con base.jpg" alt=""></a>
-            <h4>Base Y Tapa Con Marco</h4>
-        </div>
-
-        <div class="pharagrap ">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
-        </div>
+    <div class="container title-products">
+        <h3>FAMILIA DE <b>HUACALES</b></h3> 
     </div>
 
-    <!-- <div class="container title-products">
-        <h3>FAMILIA DE <b>HUACALES</b></h3> 
-    </div> -->
+    <ng-container *ngIf="productsHuacales && productsHuacales.length > 0; then listHucales; else noHuacales "></ng-container>
+
+    <ng-template #listHucales>
+
+        <div class="container direction" >
+            <div  *ngFor="let product of productsHuacales" >
+                <div class="card">
+                    <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
+                    <h4>{{product.name}}</h4>
+                </div>
+            </div>
+
+            <div class="pharagrap ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+            </div>
+
+        </div>
+
+    </ng-template>
+
+    <ng-template #noHuacales>
+        <h3>No hay productos de la familia estibas</h3>
+    </ng-template>
 
 
 
     <div class="container title-products">
         <h3 id="productos">FAMILIA DE <b>CAJAS</b></h3> 
     </div>
+
+    <ng-container *ngIf="productsCajas && productsCajas.length > 0; then listCajas; else noCajas "></ng-container>
+
+    <ng-template #listCajas>
+       
+        <div class="container direction" >
+            <div  *ngFor="let product of productsCajas" >
+                <div class="card">
+                    <a href="#"><img src="./images/Estiba.jpg" alt=""></a>
+                    <h4>{{product.name}}</h4>
+                </div>
+            </div>
+
+            <div class="pharagrap ">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quas rerum, accusantium laboriosam, perspiciatis amet aspernatur tenetur molestias, asperiores veniam cupiditate corrupti quos! Rerum cumque minus, earum saepe praesentium reiciendis ducimus tenetur error optio nesciunt veniam laborum ipsam distinctio provident ut beatae soluta sapiente cum nihil similique nemo? Libero explicabo id reprehenderit quia hic tempore reiciendis labore dolor corporis, totam consequatur unde aliquid commodi .</p>
+            </div>
+
+        </div>
+
+    </ng-template>
+
+    <ng-template #noCajas>
+        <h3>No hay productos de la familia cajas</h3>
+    </ng-template>
         
 
 </main>
