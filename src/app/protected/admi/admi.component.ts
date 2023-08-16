@@ -1,5 +1,5 @@
 import { HttpEvent, HttpEventType } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from 'src/app/interfaces/product.interface';
 import { ProductService } from 'src/app/services/product.service';
@@ -17,6 +17,7 @@ export class AdmiComponent implements OnInit {
   percentDone: any = 0;
   showTitle: boolean = true ;
   showInput: boolean = false;
+  @ViewChild('fileInput') fileInput!: ElementRef;
   lista:string[]= ['estibas','huacales','cajas'];
 
   productsEstiba!: Array<Product>; 
@@ -100,32 +101,77 @@ export class AdmiComponent implements OnInit {
     reader.readAsDataURL( file );
   }
 
+  // create2Product() {
+  //   console.log( this.productForm.value )
+
+  //   this.productsService.create2Product(
+  //     this.productForm
+  //   ).subscribe( ( event: HttpEvent<any> ) => {
+  //     switch( event.type ) {
+  //       case HttpEventType.Sent: 
+  //         console.log( 'Peticion realizada!' );
+  //         break;
+  //       case HttpEventType.ResponseHeader: 
+  //         console.log( 'La respuesta del \'header\' ha sido recibido!' );
+  //         break;
+  //       case HttpEventType.UploadProgress: 
+  //         // this.percentDone = Math.round( event.loaded / event.total * 100 );
+  //         // console.log( `Actualizado ${ this.percentDone }%` );
+  //         console.log( `Actualizo` );
+  //         break;
+  //       case HttpEventType.Response: 
+  //         console.log( 'El producto ha sido creado exitosamente!', event.body );
+  //         this.percentDone = false;
+  //         this.router.navigate( [ 'products' ] );
+  //     }
+  //   });
+
+  // }
+
   create2Product() {
-    console.log( this.productForm.value )
+    console.group( 'productForm' );
+    console.log( this.productForm.value );
+    console.log( this.productForm.valid );
+    console.groupEnd();
 
-    this.productsService.create2Product(
-      this.productForm
-    ).subscribe( ( event: HttpEvent<any> ) => {
-      switch( event.type ) {
-        case HttpEventType.Sent: 
-          console.log( 'Peticion realizada!' );
-          break;
-        case HttpEventType.ResponseHeader: 
-          console.log( 'La respuesta del \'header\' ha sido recibido!' );
-          break;
-        case HttpEventType.UploadProgress: 
-          // this.percentDone = Math.round( event.loaded / event.total * 100 );
-          // console.log( `Actualizado ${ this.percentDone }%` );
-          console.log( `Actualizo` );
-          break;
-        case HttpEventType.Response: 
-          console.log( 'El producto ha sido creado exitosamente!', event.body );
-          this.percentDone = false;
-          this.router.navigate( [ 'products' ] );
-      }
-    });
+    const formdata = new FormData();
 
+    formdata.append('name',this.productForm.get('name')?.value)
+    // formdata.append('description',this.productForm.get('description')?.value)
+    formdata.append('family',this.productForm.get('family')?.value)
+
+    const fileInput = this.fileInput.nativeElement;
+
+    console.log(fileInput.files);
+ 
+    if (fileInput.files && fileInput.files.length > 0) {
+      formdata.append('urlImage', fileInput.files[0], fileInput.files[0].name);
+    }
+    // const fileInput2 = this.fileInput2.nativeElement;
+    // if (fileInput2.files && fileInput2.files.length > 0) {
+    //   formdata.append('imageMain', fileInput2.files[0], fileInput2.files[0].name);
+    // }
+
+    console.log( fileInput.files );
+
+
+    this.productsService.create2Product( formdata )
+      .subscribe( ( response ) => {
+        console.log('holaaa');
+        console.log( '>>>>>>', response );
+
+
+      });
+
+      this.loadProductsByfamilies();
+    this.productForm.reset();
+    
+
+    // setTimeout( () => {
+    //   this.router.navigate( [ 'dashboard', 'products' ] );
+    // }, 1000 );
   }
+
 
   deleteProduct(productId : string | undefined){
     this.productsService.deleteProduct(productId )

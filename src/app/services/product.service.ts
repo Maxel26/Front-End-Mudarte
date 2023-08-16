@@ -28,26 +28,45 @@ export class ProductService {
     )
   }
 
-  create2Product( productForm: any ) : Observable<any> {
-    const formData = new FormData();
-    // formData.append('file', this.uploadForm.get('profile').value);
+  // create2Product( productForm: any ) : Observable<any> {
+  //   const formData = new FormData();
+  //   // formData.append('file', this.uploadForm.get('profile').value);
 
-    formData.append( 'name', productForm.get( 'name' ).value );
-    formData.append( 'description', productForm.get( 'description' ).value );
-    formData.append( 'family', productForm.get( 'family' ).value );
-    formData.append( 'urlImage', productForm.get( 'urlImage' ).value  );
+  //   formData.append( 'name', productForm.get( 'name' ).value );
+  //   formData.append( 'description', productForm.get( 'description' ).value );
+  //   formData.append( 'family', productForm.get( 'family' ).value );
+  //   formData.append( 'urlImage', productForm.get( 'urlImage' ).value  );
 
-    console.log( '<<<<<<', formData );
+  //   console.log( '<<<<<<', formData );
 
-    return this.http.post<Product>(
+  //   return this.http.post<Product>(
+  //     `${ this.BASE_URL }/products`,      // URL del BackEnd al que debemos hacer la peticion
+  //     formData,                            // Objeto de producto a crear
+  //     {                                   // Cabeceras con información requerida 
+  //       headers: this.headers,
+  //       reportProgress: false,
+  //       observe: 'events'
+  //     }
+  //   );
+  // }
+
+  create2Product( formProduct: FormData ) {
+    console.log( 'Sumerce muñeco', formProduct );
+
+    this.headers.append('Accept', 'application/json')
+    const data = this.http.post(
       `${ this.BASE_URL }/products`,      // URL del BackEnd al que debemos hacer la peticion
-      formData,                            // Objeto de producto a crear
-      {                                   // Cabeceras con información requerida 
-        headers: this.headers,
-        reportProgress: false,
-        observe: 'events'
-      }
+      formProduct,                            // Objeto de producto a crear
+      { headers: this.headers }           // Cabeceras con información requerida
+
     );
+
+    // data.subscribe( ( res ) => {
+    //   console.log( res );
+    // })
+
+
+    return data;
   }
 
   updateProduct(productId : string, product: Product){

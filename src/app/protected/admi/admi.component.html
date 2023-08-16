@@ -6,7 +6,8 @@
 
     <form class=""
     [formGroup]="productForm"
-    (ngSubmit) = "createProduct()"
+    (ngSubmit) = "create2Product()"
+    enctype="multipart/form-data"
     >
 
     <div class="element">
@@ -26,7 +27,7 @@
                 class="input-field"
                 type="file"
                 formControlName="urlImage"
-                (change)="updateFile($event)"
+                multiple accept="image/*" #fileInput
             />
 
             <label for="title">Nombre del producto</label>
@@ -78,7 +79,7 @@
                 </div>
         
                 <div class="edit-main">
-                    <button  (click)="editProduct()" ><img src="../../../assets/images/lapiz-removebg-preview.png" class="edit" alt=""></button>
+                    <button  (click)="editProduct()" ><img [src]="product.urlImage" class="edit" alt=""></button>
                     <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
                 </div>
             </div>
