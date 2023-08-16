@@ -20,7 +20,6 @@ b {
 }
 
 #accordion {
-  /* max-width: 100%; */
   display: flex;
   flex-direction: column;
 }
@@ -30,14 +29,11 @@ b {
   width: 100%;
   margin-bottom: 10px;
   align-items: center;
-  /* border: solid;
-  border-color: black; */
   padding: 10px;
   border-radius: 4px;
 }
 
 #accordion li label {
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,6 +42,7 @@ b {
   cursor: pointer;
   color: blue;
   font-weight: bolder;
+  text-align: left;
 }
 
 #accordion li label span {
@@ -84,10 +81,44 @@ b {
   max-height: 400px;
 }
 
-
+/* todo: revisar con el profesor como puedo justificar los titulos dentro de las media queries */
 @media screen and (min-width: 567px){
   .container{
       max-width: 540px;
+  }
+
+  .introduccion {
+    font-size: large;
+  }
+
+  #accordion {
+    max-width: 100%;
+    display: block;
+    justify-content: space-evenly;
+    justify-items: center;
+    text-align: center;
+    margin: 10px; 
+    padding: 10px;
+    text-align: left;
+  }
+
+  #accordion li label {
+    text-align: left;
+  }
+  .content {
+    text-align: center;
+  }
+
+  input {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  label {
+    display: block;
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
   }
 }
 
@@ -95,15 +126,48 @@ b {
   .container{
       max-width: 720px;
   }
+
+  .content{
+    text-align: left;
+    /* text-justify: distribute; */
+  }
+
+  #accordion li label {
+    text-align: left;
+  }
 }
 @media screen and (min-width: 992px){
   .container{
       max-width: 960px 
   }
+  #accordion {
+    max-width: 100%;
+    display: block;
+    justify-content: space-evenly;
+    justify-items: center;
+    text-align: center;
+    margin: 10px; 
+    padding: 10px;
+  }
+
+  .content{
+    text-align: left;
+  }
+
+  #accordion li label {
+    text-align: left;
+  }
+
 }
 @media screen and ( min-width: 1200px){
   .container{
       max-width: 1140px;
+  }
+  .content {
+    text-align: left;
+  }
+  #accordion li label {
+    text-align: left;
   }
 }
 @media screen and (min-width: 1400px){
