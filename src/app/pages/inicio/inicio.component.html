@@ -26,7 +26,7 @@
         <div class="container direction" >
 
             <div class="card" *ngFor="let product of cards">
-                <a routerLink="productos"><img src="./images/Estiba.jpg" alt=""></a>
+                <a routerLink="productos"><img [src]="product.urlImg" alt=""></a>
                  <h4>{{product.name}}</h4>
                  <p>{{product.description}}</p>
                 <a routerLink="#productos" class="buttom-card-products" >Ver mas </a>
@@ -46,9 +46,9 @@
          <h3 class="title-h3">NUESTROS <b>CLIENTES</b></h3> 
 
          <div class="client-content">
-             <img src="./images/Canpack.png" alt="" class="client-img">
-             <img src="./images/Flowserve.png" alt="" class="client-img">
-             <img src="./images/pharmetiqueeeee.png" alt="" class="client-img">
+             <img src="../../assets/images/Canpack.png" alt="" class="client-img">
+             <img src="../../assets/images/Flowserve.png" alt="" class="client-img">
+             <img src="../../assets/images/pharmetiqueeeee.png" alt="" class="client-img">
          </div>
      </div>
 </main>

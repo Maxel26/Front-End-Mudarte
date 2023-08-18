@@ -1,9 +1,15 @@
 .background-img{
     background-image: url("https://industrial.bold-themes.com/yellow-factory/wp-content/uploads/sites/10/2016/10/background_2.jpg");
+    /* background-image: url("../../../assets/images/Fotopagina.JPG"); */
     background-size: cover;
     background-position: center; 
     height: 600px;
     width: 100%;
+
+    /* background-size: cover;
+    background-position: 0 -100px; 
+    height: 600px;
+    width: 100%; */
         
 }
 .element-father{

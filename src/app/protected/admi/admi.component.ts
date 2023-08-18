@@ -129,10 +129,10 @@ export class AdmiComponent implements OnInit {
   // }
 
   create2Product() {
-    console.group( 'productForm' );
-    console.log( this.productForm.value );
-    console.log( this.productForm.valid );
-    console.groupEnd();
+    // console.group( 'productForm' );
+    // console.log( this.productForm.value );
+    // console.log( this.productForm.valid );
+    // console.groupEnd();
 
     const formdata = new FormData();
 
@@ -163,8 +163,9 @@ export class AdmiComponent implements OnInit {
 
       });
 
-      this.loadProductsByfamilies();
+      
     this.productForm.reset();
+    this.loadProductsByfamilies();
     
 
     // setTimeout( () => {

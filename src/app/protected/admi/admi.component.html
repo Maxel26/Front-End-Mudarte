@@ -58,6 +58,8 @@
         </div> 
     </div>
 
+</form>
+
     <div class="family">
         <h2>FAMILIA DE <b>ESTIBAS</b></h2>
     </div>
@@ -79,7 +81,7 @@
                 </div>
         
                 <div class="edit-main">
-                    <button  (click)="editProduct()" ><img [src]="product.urlImage" class="edit" alt=""></button>
+                    
                     <button  (click)="deleteProduct(product._id)"><img src="https://cdn-icons-png.flaticon.com/512/10097/10097645.png" class="edit" alt=""></button>
                 </div>
             </div>
@@ -90,7 +92,7 @@
         <h3>No hay productos de la familia estibas</h3>
     </ng-template>
 
-    </form>    
+        
 
     <div class="element">
         <div >
@@ -117,7 +119,7 @@
             <div class="product-content">
                 <h3>Id Producto : {{product._id}}</h3>
                 <div class="img-title">
-                    <img src="./images/Estiba.jpg" alt="">
+                    <img [src]="product.urlImage" alt="">
                     <p>{{product.name}}</p>
                     
                 </div>
@@ -160,7 +162,7 @@
             <div class="product-content">
                 <h3>Id Producto : {{product._id}}</h3>
                 <div class="img-title">
-                    <img src="./images/Estiba.jpg" alt="">
+                    <img [src]="product.urlImage" alt="">
                     <p>{{product.name}}</p>
                     
                 </div>

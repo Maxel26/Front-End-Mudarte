@@ -46,6 +46,8 @@
 
 .admin {
     justify-content: end;
+    text-decoration: none;
+    color: white;
 }
 
 @media screen and (min-width: 567px){
