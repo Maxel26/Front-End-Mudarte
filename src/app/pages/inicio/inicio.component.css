@@ -82,6 +82,7 @@ b{
       transition: speed;
       position: absolute;
       background: white;
+      border-radius: 1rem;
       content: attr(data-back);
       transform: translateY(-50%) rotateX(90deg);
     }
@@ -94,7 +95,8 @@ b{
       display: block;
       padding: 0 30px;
       line-height: 40px;
-      transition: step-start ;
+      border-radius: 1rem;
+      transition: step-start;
       position: relative;
       background: blue;
       content: attr(data-front);

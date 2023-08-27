@@ -165,12 +165,13 @@ export class AdmiComponent implements OnInit {
 
       
     this.productForm.reset();
-    this.loadProductsByfamilies();
+   
     
 
     // setTimeout( () => {
     //   this.router.navigate( [ 'dashboard', 'products' ] );
     // }, 1000 );
+    this.loadProductsByfamilies();
   }
 
 
